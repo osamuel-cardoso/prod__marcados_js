@@ -11,7 +11,7 @@
     "jest": true,
     "browser": true
   },
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "extends": ["eslint:recommended"],
   "plugins": ["import", "sort-imports-es6-autofix"],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
