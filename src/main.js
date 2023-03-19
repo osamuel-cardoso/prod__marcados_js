@@ -16,6 +16,7 @@ const swiper = new Swiper ('.swiper', {
 
 AOS.init();
 
+
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.005 - Math.pow(1.8, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
