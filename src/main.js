@@ -57,4 +57,4 @@ const clock = setInterval(function time() {
     minutos.innerText = min;
 })
 
-clock
+clock;
