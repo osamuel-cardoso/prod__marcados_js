@@ -14,9 +14,6 @@ const swiper = new Swiper ('.swiper', {
   },
 })
 
-
-
-
 AOS.init();
 
 const lenis = new Lenis({
