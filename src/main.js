@@ -37,3 +37,24 @@ function raf(time) {
 requestAnimationFrame(raf)
 
 swiper.init();
+
+const horas = document.getElementById('clock_hour');
+const minutos = document.getElementById('clock_minute');
+
+console.log(horas)
+console.log(minutos)
+
+const clock = setInterval(function time() {
+    
+  let dateToday = new Date();
+    let hr = dateToday.getHours();
+    let min = dateToday.getMinutes();
+
+    if (hr < 10) hr = '0' + hr;
+    if (min < 10) min = '0' + min;
+
+    horas.innerText = hr;
+    minutos.innerText = min;
+})
+
+clock
