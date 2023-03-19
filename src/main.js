@@ -1,12 +1,27 @@
 import Lenis from '@studio-freight/lenis';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
+import Swiper, { Navigation } from 'swiper';
+import 'swiper/css';
+
+const swiper = new Swiper ('.swiper', {
+  loop: true,
+  modules: [Navigation],
+  
+  navigation: {
+    nextEl: '.controler_right',
+    prevEl: '.controler_left',
+  },
+})
+
+
+
 
 AOS.init();
 
 const lenis = new Lenis({
-  duration: 0.8,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.005 - Math.pow(1.8, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
   direction: 'vertical', // vertical, horizontal
   gestureDirection: 'vertical', // vertical, horizontal, both
   smooth: true,
@@ -22,3 +37,5 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf)
+
+swiper.init();
