@@ -5,8 +5,13 @@ import Swiper, { Navigation } from 'swiper';
 import 'swiper/css';
 
 const swiper = new Swiper ('.swiper', {
+  autoHeight: true,
   loop: true,
   modules: [Navigation],
+
+  autoplay: {
+    delay: 3000,
+  },
   
   navigation: {
     nextEl: '.controler_right',
@@ -40,9 +45,6 @@ swiper.init();
 
 const horas = document.getElementById('clock_hour');
 const minutos = document.getElementById('clock_minute');
-
-console.log(horas)
-console.log(minutos)
 
 const clock = setInterval(function time() {
     
