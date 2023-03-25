@@ -61,48 +61,48 @@ const clock = setInterval(function time() {
 
 clock;
 
-(function () {
+// (function () {
 
-  var deadline = '2023/03/24 23:59';
+//   var deadline = '2023/03/24 23:59';
 
-  function pad(num, size) {
-      var s = "0" + num;
-      return s.substr(s.length - size);
-  }
+//   function pad(num, size) {
+//       var s = "0" + num;
+//       return s.substr(s.length - size);
+//   }
 
-  // fixes "Date.parse(date)" on safari
-  function parseDate(date) {
-      const parsed = Date.parse(date);
-      if (!isNaN(parsed)) return parsed
-      return Date.parse(date.replace(/-/g, '/').replace(/[a-z]+/gi, ' '));
-  }
+//   // fixes "Date.parse(date)" on safari
+//   function parseDate(date) {
+//       const parsed = Date.parse(date);
+//       if (!isNaN(parsed)) return parsed
+//       return Date.parse(date.replace(/-/g, '/').replace(/[a-z]+/gi, ' '));
+//   }
 
-  function getTimeRemaining(endtime) {
-      let total = parseDate(endtime) - Date.parse(new Date())
-      let minutes = Math.floor((total / 1000 / 60) % 60)
-      let hours = Math.floor((total / (1000 * 60 * 60)) % 24)
-      let days = Math.floor(total / (1000 * 60 * 60 * 24))
+//   function getTimeRemaining(endtime) {
+//       let total = parseDate(endtime) - Date.parse(new Date())
+//       let minutes = Math.floor((total / 1000 / 60) % 60)
+//       let hours = Math.floor((total / (1000 * 60 * 60)) % 24)
+//       let days = Math.floor(total / (1000 * 60 * 60 * 24))
 
-      return { total, days, hours, minutes};
-  }
+//       return { total, days, hours, minutes};
+//   }
 
-  function clock(id, endtime) {
-      let days = document.getElementById(id + '-days')
-      let hours = document.getElementById(id + '-hours')
-      let minutes = document.getElementById(id + '-minutes')
+//   function clock(id, endtime) {
+//       let days = document.getElementById(id + '-days')
+//       let hours = document.getElementById(id + '-hours')
+//       let minutes = document.getElementById(id + '-minutes')
 
-      var timeinterval = setInterval(function () {
-          var time = getTimeRemaining(endtime);
+//       var timeinterval = setInterval(function () {
+//           var time = getTimeRemaining(endtime);
 
-          if (time.total <= 0) {
-              clearInterval(timeinterval);
-          } else {
-              days.innerHTML = pad(time.days, 2);
-              hours.innerHTML = pad(time.hours, 2);
-              minutes.innerHTML = pad(time.minutes, 2);
-          }
-      }, 1000);
-  }
+//           if (time.total <= 0) {
+//               clearInterval(timeinterval);
+//           } else {
+//               days.innerHTML = pad(time.days, 2);
+//               hours.innerHTML = pad(time.hours, 2);
+//               minutes.innerHTML = pad(time.minutes, 2);
+//           }
+//       }, 1000);
+//   }
 
-  clock('js-clock', deadline);
-})();
+//   clock('js-clock', deadline);
+// })();
