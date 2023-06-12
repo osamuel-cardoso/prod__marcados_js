@@ -61,48 +61,52 @@ const clock = setInterval(function time() {
 
 clock;
 
-// (function () {
+(function () {
 
-//   var deadline = '2023/03/24 23:59';
+  var deadline = '2023/07/03 19:59';
 
-//   function pad(num, size) {
-//       var s = "0" + num;
-//       return s.substr(s.length - size);
-//   }
+  function pad(num, size) {
+      var s = "0" + num;
+      return s.substr(s.length - size);
+  }
 
-//   // fixes "Date.parse(date)" on safari
-//   function parseDate(date) {
-//       const parsed = Date.parse(date);
-//       if (!isNaN(parsed)) return parsed
-//       return Date.parse(date.replace(/-/g, '/').replace(/[a-z]+/gi, ' '));
-//   }
+  // fixes "Date.parse(date)" on safari
+  function parseDate(date) {
+      const parsed = Date.parse(date);
+      if (!isNaN(parsed)) return parsed
+      return Date.parse(date.replace(/-/g, '/').replace(/[a-z]+/gi, ' '));
+  }
 
-//   function getTimeRemaining(endtime) {
-//       let total = parseDate(endtime) - Date.parse(new Date())
-//       let minutes = Math.floor((total / 1000 / 60) % 60)
-//       let hours = Math.floor((total / (1000 * 60 * 60)) % 24)
-//       let days = Math.floor(total / (1000 * 60 * 60 * 24))
+  function getTimeRemaining(endtime) {
+      let total = parseDate(endtime) - Date.parse(new Date())
 
-//       return { total, days, hours, minutes};
-//   }
+      let seconds = Math.floor((total / 1000) % 60)
+      let minutes = Math.floor((total / 1000 / 60) % 60)
+      let hours = Math.floor((total / (1000 * 60 * 60)) % 24)
+      let days = Math.floor(total / (1000 * 60 * 60 * 24))
 
-//   function clock(id, endtime) {
-//       let days = document.getElementById(id + '-days')
-//       let hours = document.getElementById(id + '-hours')
-//       let minutes = document.getElementById(id + '-minutes')
+      return { total, days, hours, minutes, seconds};
+  }
 
-//       var timeinterval = setInterval(function () {
-//           var time = getTimeRemaining(endtime);
+  function clock(endtime) {
+      let days = document.querySelector(".count__days")
+      let hours = document.querySelector(".count__hours")
+      let minutes = document.querySelector(".count__minutes")
+      let seconds = document.querySelector(".count__seconds")
 
-//           if (time.total <= 0) {
-//               clearInterval(timeinterval);
-//           } else {
-//               days.innerHTML = pad(time.days, 2);
-//               hours.innerHTML = pad(time.hours, 2);
-//               minutes.innerHTML = pad(time.minutes, 2);
-//           }
-//       }, 1000);
-//   }
+      var timeinterval = setInterval(function () {
+          var time = getTimeRemaining(endtime);
 
-//   clock('js-clock', deadline);
-// })();
+          if (time.total <= 0) {
+              clearInterval(timeinterval);
+          } else {
+              days.innerHTML = pad(time.days, 2);
+              hours.innerHTML = pad(time.hours, 2);
+              minutes.innerHTML = pad(time.minutes, 2);
+              seconds.innerHTML = pad(time.seconds, 2);
+          }
+      }, 1000);
+  }
+
+  clock(deadline);
+})();
