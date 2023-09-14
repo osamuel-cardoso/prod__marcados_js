@@ -63,7 +63,7 @@ clock;
 
 (function () {
 
-  var deadline = '2023/09/16 23:59';
+  var deadline = '2023/09/17 23:59';
 
   function pad(num, size) {
       var s = "0" + num;
