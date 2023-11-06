@@ -8,7 +8,7 @@ const swiper = new Swiper(".swiper", {
   modules: [Navigation],
   slidesPerView: "auto",
   grabCursor: true,
-
+  createElements: true,
   spaceBetween: 20,
 
   navigation: {
